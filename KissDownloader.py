@@ -246,6 +246,12 @@ class KissDownloader:
                             filename = p[2] + " S" + str(p[4].zfill(2)) + "E" + self.zpad(str(e), 3) + video[1]  # 2 is the title, 4 is the season
                     print("Got link for " + filename)
                     episode_list.append((video[0], filename, p[7]))
+                    f = open('myfile.txt','a')
+                    f.write(video[0] + '\n') # python will convert \n to os.linesep
+                    f.close()
+                    print(video[0])
+                    print(filename)
+                    print(p[7])
                 else: ("no link for episode " + str(e))
         self.driver.close()
         for tuple in episode_list:
@@ -353,7 +359,7 @@ if __name__ == "__main__":
 
         destination = root_destination + title + "\\"
 
-        quality = '1920x1080.mp4'
+        quality = '1280x720.mp4'
 
         continue_bul = input("Continue adding anime blank to continue: ")
 
